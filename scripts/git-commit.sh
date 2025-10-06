@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="feat(issues): add issue CRUD and realtime emits"
+DEFAULT_MSG="feat(attachments): presigned uploads and comments"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present
