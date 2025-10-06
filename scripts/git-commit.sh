@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="chore(repo): scaffold backend + docker compose + README"
+DEFAULT_MSG="feat(prisma): add schema and seed skeleton"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present
@@ -34,6 +34,10 @@ else
 fi
 
 echo ""
-echo "Next steps (if you want to push to remote):"
+echo "Next steps:"
+echo "  npx prisma generate"
+echo "  npx prisma migrate dev --name init"
+echo ""
+echo "To push to remote:"
 echo "  git remote add origin <YOUR_REMOTE_URL>"
 echo "  git push -u origin main"
