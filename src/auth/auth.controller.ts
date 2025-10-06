@@ -24,8 +24,8 @@ import { AuthService } from "./auth.service";
 import { JwtAuthGuard } from "./jwt-auth.guard";
 import { RefreshTokenGuard } from "./refresh.guard";
 
-interface RequestWithUser extends Request {
-  user: User;
+export interface RequestWithUser extends Request {
+  user: any;
 }
 
 class LoginDto {
