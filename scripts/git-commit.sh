@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="feat(auth): add token helpers and refresh token storage"
+DEFAULT_MSG="feat(auth): add controllers, jwt strategy, refresh guard"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present

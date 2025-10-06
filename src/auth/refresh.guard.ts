@@ -1,38 +1,42 @@
 import { Injectable, CanActivate, ExecutionContext, UnauthorizedException } from '@nestjs/common';
-import { AuthService } from './auth.service';
 import { Request } from 'express';
+import { PrismaService } from '../prisma/prisma.service';
+import { hashToken } from './jwt.utils';
 
-/**
- * Guard to protect /auth/refresh endpoint.
- * It reads the raw refresh token from cookie "refresh_token" (or header "x-refresh-token")
- * and validates it against hashed value in DB using AuthService.validateRefreshToken().
- *
- * On success it attaches the tokenRecord to request.refreshTokenRecord for controller use.
- */
 @Injectable()
-export class RefreshGuard implements CanActivate {
-  constructor(private readonly authService: AuthService) {}
+export class RefreshTokenGuard implements CanActivate {
+  constructor(private prisma: PrismaService) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const req: Request = context.switchToHttp().getRequest();
-    // Expect refresh token in HttpOnly cookie named "refresh_token"
-    const cookieToken = (req.cookies && (req.cookies['refresh_token'] as string)) || null;
-    // Optionally support header fallback (useful for testing)
-    const headerToken = req.get('x-refresh-token') || null;
-    const rawToken = cookieToken || headerToken;
-    if (!rawToken) {
-      throw new UnauthorizedException('No refresh token provided');
+    const request = context.switchToHttp().getRequest<Request>();
+    const refreshToken = request.cookies['refresh_token'];
+
+    if (!refreshToken) {
+      throw new UnauthorizedException('Refresh token not found');
     }
 
-    const tokenRecord = await this.authService.validateRefreshToken(rawToken);
+    const hashedToken = hashToken(refreshToken);
+    const tokenRecord = await this.prisma.refreshToken.findFirst({
+      where: {
+        token: hashedToken,
+      },
+      include: {
+        user: true,
+      },
+    });
+
     if (!tokenRecord) {
-        throw new UnauthorizedException('Invalid or expired refresh token');
+      throw new UnauthorizedException('Invalid refresh token');
     }
 
-    // Attach token record to request for controller to rotate/revoke
-    (req as any).refreshTokenRecord = tokenRecord;
-    // Also attach the raw token so controller can rotate (if needed)
-    (req as any).rawRefreshToken = rawToken;
+    if (tokenRecord.expiresAt < new Date()) {
+      throw new UnauthorizedException('Refresh token expired');
+    }
+
+    // Attach user and token record to request
+    request['user'] = tokenRecord.user;
+    request['refreshToken'] = tokenRecord;
+
     return true;
   }
 }
