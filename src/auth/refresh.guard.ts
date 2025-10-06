@@ -1,42 +1,39 @@
-import { Injectable, CanActivate, ExecutionContext, UnauthorizedException } from '@nestjs/common';
-import { Request } from 'express';
-import { PrismaService } from '../prisma/prisma.service';
-import { hashToken } from './jwt.utils';
+import {
+  Injectable,
+  CanActivate,
+  ExecutionContext,
+  UnauthorizedException,
+} from "@nestjs/common";
+import { Request } from "express";
+import { AuthService } from "./auth.service";
 
+/**
+ * Guard to protect /auth/refresh endpoint.
+ * Reads raw refresh token from cookie "refresh_token" or header "x-refresh-token",
+ * validates via AuthService.validateRefreshToken(), and attaches token record.
+ */
 @Injectable()
-export class RefreshTokenGuard implements CanActivate {
-  constructor(private prisma: PrismaService) {}
+export class RefreshGuard implements CanActivate {
+  constructor(private readonly authService: AuthService) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = context.switchToHttp().getRequest<Request>();
-    const refreshToken = request.cookies['refresh_token'];
-
-    if (!refreshToken) {
-      throw new UnauthorizedException('Refresh token not found');
+    const req: Request = context.switchToHttp().getRequest();
+    const cookieToken =
+      (req.cookies && (req.cookies["refresh_token"] as string)) || null;
+    const headerToken = req.get("x-refresh-token") || null;
+    const rawToken = cookieToken || headerToken;
+    if (!rawToken) {
+      throw new UnauthorizedException("No refresh token provided");
     }
 
-    const hashedToken = hashToken(refreshToken);
-    const tokenRecord = await this.prisma.refreshToken.findFirst({
-      where: {
-        token: hashedToken,
-      },
-      include: {
-        user: true,
-      },
-    });
-
+    const tokenRecord = await this.authService.validateRefreshToken(rawToken);
     if (!tokenRecord) {
-      throw new UnauthorizedException('Invalid refresh token');
+      throw new UnauthorizedException("Invalid or expired refresh token");
     }
 
-    if (tokenRecord.expiresAt < new Date()) {
-      throw new UnauthorizedException('Refresh token expired');
-    }
-
-    // Attach user and token record to request
-    request['user'] = tokenRecord.user;
-    request['refreshToken'] = tokenRecord;
-
+    // Attach to request for controller use
+    (req as any).refreshTokenRecord = tokenRecord;
+    (req as any).rawRefreshToken = rawToken;
     return true;
   }
 }
