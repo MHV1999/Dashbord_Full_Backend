@@ -11,8 +11,9 @@ import { IssuesModule } from './issues/issues.module';
 import { CommentsModule } from './comments/comments.module';
 import { AttachmentsModule } from './attachments/attachments.module';
 import { AdminModule } from './admin/admin.module';
+import { RealtimeModule } from './realtime/realtime.module';
 
 @Module({
-  imports: [AuthModule, PrismaModule, UsersModule, RolesModule, PermissionsModule, ProjectsModule, BoardsModule, ListsModule, IssuesModule, CommentsModule, AttachmentsModule, AdminModule],
+  imports: [AuthModule, PrismaModule, UsersModule, RolesModule, PermissionsModule, ProjectsModule, BoardsModule, ListsModule, IssuesModule, CommentsModule, AttachmentsModule, AdminModule, RealtimeModule],
 })
 export class AppModule {}

@@ -19,7 +19,7 @@ import {
 } from '@nestjs/swagger';
 import { IssuesService } from './issues.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { EventsGateway } from '../gateway/events.gateway';
+import { RealtimeGateway } from '../realtime/realtime.gateway';
 import { IsString, IsOptional } from 'class-validator';
 
 class CreateIssueDto {
@@ -63,7 +63,7 @@ class UpdateIssueDto {
 export class IssuesController {
   constructor(
     private readonly issuesService: IssuesService,
-    private readonly eventsGateway: EventsGateway,
+    private readonly realtimeGateway: RealtimeGateway,
   ) {}
 
   @Post()
@@ -72,7 +72,7 @@ export class IssuesController {
   @ApiResponse({ status: 201, description: 'Issue created' })
   async create(@Param('projectId') projectId: string, @Body() createIssueDto: CreateIssueDto) {
     const issue = await this.issuesService.create(projectId, createIssueDto);
-    this.eventsGateway.emitToProject(projectId, 'issue:created', {
+    this.realtimeGateway.emitToProject(projectId, 'issue:created', {
       id: issue.id,
       title: issue.title,
       status: issue.listId,
@@ -118,7 +118,7 @@ export class IssuesController {
   @ApiResponse({ status: 404, description: 'Issue not found' })
   async update(@Param('id') id: string, @Param('projectId') projectId: string, @Body() updateIssueDto: UpdateIssueDto) {
     const issue = await this.issuesService.update(id, updateIssueDto);
-    this.eventsGateway.emitToProject(projectId, 'issue:updated', {
+    this.realtimeGateway.emitToProject(projectId, 'issue:updated', {
       id: issue.id,
       title: issue.title,
       status: issue.listId,
@@ -134,7 +134,7 @@ export class IssuesController {
   async remove(@Param('id') id: string, @Param('projectId') projectId: string) {
     const issue = await this.issuesService.findOne(id); // Get before delete
     await this.issuesService.remove(id);
-    this.eventsGateway.emitToProject(projectId, 'issue:deleted', {
+    this.realtimeGateway.emitToProject(projectId, 'issue:deleted', {
       id: issue.id,
       title: issue.title,
       status: issue.listId,

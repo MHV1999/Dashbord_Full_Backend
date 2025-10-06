@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="feat(admin): add admin endpoints and audit logs"
+DEFAULT_MSG="feat(realtime): add socket.io gateway with auth"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present
