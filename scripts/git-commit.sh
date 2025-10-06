@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="feat(rbac): add roles & permissions module and permissions guard"
+DEFAULT_MSG="feat(issues): add issue CRUD and realtime emits"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present
