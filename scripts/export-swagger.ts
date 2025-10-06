@@ -1,21 +1,16 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
-
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
-import { AppModule } from './app.module';
+import { AppModule } from '../src/app.module';
+import * as fs from 'fs';
+import * as path from 'path';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+async function exportSwagger() {
+  const app = await NestFactory.create(AppModule, { logger: false });
 
   app.use(cookieParser());
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true,
-    transform: true,
-  }));
+  app.useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
     .setTitle('API')
@@ -39,9 +34,20 @@ async function bootstrap() {
       name: 'refresh_token',
     })
     .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
 
-  await app.listen(3000);
+  const document = SwaggerModule.createDocument(app, config);
+
+  const docsDir = path.join(__dirname, '..', 'docs');
+  if (!fs.existsSync(docsDir)) {
+    fs.mkdirSync(docsDir, { recursive: true });
+  }
+
+  const outputPath = path.join(docsDir, 'swagger.json');
+  fs.writeFileSync(outputPath, JSON.stringify(document, null, 2));
+
+  console.log(`Swagger documentation exported to ${outputPath}`);
+
+  await app.close();
 }
-bootstrap();
+
+exportSwagger().catch(console.error);

@@ -14,7 +14,7 @@
     "prisma:migrate:dev": "prisma migrate dev --name init",
     "prisma:generate": "prisma generate",
     "seed": "ts-node --transpile-only prisma/seed.ts",
-    "build:swagger": "node dist/scripts/export-swagger.js",
+    "build:swagger": "npm run build && node dist/scripts/export-swagger.js",
     "export:postman": "npx openapi-to-postmanv2 -s docs/swagger.json -o postman_collection.json --pretty"
   },
   "dependencies": {
