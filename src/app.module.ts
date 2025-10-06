@@ -10,8 +10,9 @@ import { ListsModule } from './lists/lists.module';
 import { IssuesModule } from './issues/issues.module';
 import { CommentsModule } from './comments/comments.module';
 import { AttachmentsModule } from './attachments/attachments.module';
+import { AdminModule } from './admin/admin.module';
 
 @Module({
-  imports: [AuthModule, PrismaModule, UsersModule, RolesModule, PermissionsModule, ProjectsModule, BoardsModule, ListsModule, IssuesModule, CommentsModule, AttachmentsModule],
+  imports: [AuthModule, PrismaModule, UsersModule, RolesModule, PermissionsModule, ProjectsModule, BoardsModule, ListsModule, IssuesModule, CommentsModule, AttachmentsModule, AdminModule],
 })
 export class AppModule {}
