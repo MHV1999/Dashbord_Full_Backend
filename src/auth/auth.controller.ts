@@ -163,7 +163,7 @@ export class AuthController {
   @ApiResponse({ status: 200, description: "User info" })
   @ApiResponse({ status: 401, description: "Unauthorized" })
   async me(@Req() req: Request) {
-    const user = req["user"];
+    const user = req["user"] as { id: string; email: string; name: string | null };
     return {
       id: user.id,
       email: user.email,
