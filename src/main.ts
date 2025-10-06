@@ -1,6 +1,4 @@
 import * as dotenv from 'dotenv';
-dotenv.config();
-
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
@@ -8,6 +6,9 @@ import * as cookieParser from 'cookie-parser';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
+  if (process.env.SKIP_DB !== 'true') {
+    dotenv.config();
+  }
   const app = await NestFactory.create(AppModule);
 
   app.use(cookieParser());

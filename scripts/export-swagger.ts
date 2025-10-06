@@ -1,3 +1,6 @@
+process.env.SKIP_DB = 'true';
+process.env.DATABASE_URL = 'postgresql://dummy:dummy@dummy:5432/dummy';
+
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
@@ -7,6 +10,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 async function exportSwagger() {
+
   const app = await NestFactory.create(AppModule, { logger: false });
 
   app.use(cookieParser());
