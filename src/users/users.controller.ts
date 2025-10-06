@@ -72,4 +72,12 @@ export class UsersController {
 
     return this.usersService.remove(id);
   }
+
+  @Get(':id/permissions')
+  @ApiOperation({ summary: 'Get user permissions' })
+  @ApiResponse({ status: 200, description: 'User permissions' })
+  @ApiResponse({ status: 404, description: 'User not found' })
+  async getPermissions(@Param('id') id: string) {
+    return this.usersService.getPermissions(id);
+  }
 }

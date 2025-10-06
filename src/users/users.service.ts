@@ -72,4 +72,35 @@ export class UsersService {
 
     await this.prisma.user.delete({ where: { id } });
   }
+
+  async getPermissions(id: string): Promise<string[]> {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+      include: {
+        roles: {
+          include: {
+            role: {
+              include: {
+                permissions: {
+                  include: {
+                    permission: true,
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!user) {
+      throw new NotFoundException('User not found');
+    }
+
+    const permissions = user.roles.flatMap(ur =>
+      ur.role.permissions.map(rp => rp.permission.name)
+    );
+
+    return [...new Set(permissions)]; // Remove duplicates
+  }
 }
