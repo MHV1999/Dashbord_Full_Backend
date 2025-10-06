@@ -77,10 +77,14 @@ model UserRole {
 }
 
 model RefreshToken {
-  id        String   @id @default(cuid())
-  token     String   @unique
-  userId    String
-  expiresAt DateTime
+  id         String   @id @default(cuid())
+  jti        String   @unique
+  tokenHash  String
+  userId     String
+  deviceInfo String?
+  revoked    Boolean  @default(false)
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -176,10 +180,14 @@ model Comment {
 }
 
 model Attachment {
-  id        String   @id @default(cuid())
-  url       String
-  issueId   String
-  createdAt DateTime @default(now())
+  id         String   @id @default(cuid())
+  url        String
+  issueId    String
+  uploaderId String?
+  filename   String?
+  mimeType   String?
+  size       Int?
+  createdAt  DateTime @default(now())
 
   issue Issue @relation(fields: [issueId], references: [id])
 
@@ -189,11 +197,11 @@ model Attachment {
 model AuditLog {
   id        String   @id @default(cuid())
   action    String
-  userId    String
+  userId    String?
   details   Json?
   timestamp DateTime @default(now())
 
-  user User @relation(fields: [userId], references: [id])
+  user User? @relation(fields: [userId], references: [id])
 
   @@map("audit_logs")
 }
