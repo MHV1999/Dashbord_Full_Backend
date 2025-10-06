@@ -18,9 +18,14 @@ import {
   ApiBearerAuth,
 } from "@nestjs/swagger";
 import { Response, Request } from "express";
+import { User } from "@prisma/client";
 import { AuthService } from "./auth.service";
 import { JwtAuthGuard } from "./jwt-auth.guard";
-import { RefreshGuard } from "./refresh.guard";
+import { RefreshTokenGuard } from "./refresh.guard";
+
+interface RequestWithUser extends Request {
+  user: User;
+}
 
 class LoginDto {
   email: string;
@@ -87,7 +92,7 @@ export class AuthController {
    * attaches token record to request. We rotate the refresh token and issue new access.
    */
   @Post("refresh")
-  @UseGuards(RefreshGuard)
+  @UseGuards(RefreshTokenGuard)
   @HttpCode(HttpStatus.OK)
   @ApiOperation({ summary: "Refresh access token" })
   @ApiCookieAuth("refresh_token")
@@ -97,7 +102,7 @@ export class AuthController {
     type: LoginResponse,
   })
   @ApiResponse({ status: 401, description: "Unauthorized" })
-  async refresh(@Req() req: Request, @Res() res: Response) {
+  async refresh(@Req() req: RequestWithUser, @Res() res: Response) {
     // Guard set these:
     const tokenRecord = (req as any).refreshTokenRecord;
     const user = tokenRecord.user;
@@ -162,12 +167,12 @@ export class AuthController {
   @ApiOperation({ summary: "Get current user info" })
   @ApiResponse({ status: 200, description: "User info" })
   @ApiResponse({ status: 401, description: "Unauthorized" })
-  async me(@Req() req: Request) {
-    const user = req["user"] as { id: string; email: string; name: string | null };
+  async me(@Req() req: RequestWithUser) {
+    const { id, email, name } = req.user;
     return {
-      id: user.id,
-      email: user.email,
-      name: user.name,
+      id,
+      email,
+      name,
     };
   }
 }

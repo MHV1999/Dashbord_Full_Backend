@@ -6,7 +6,7 @@ import { AuthService } from "./auth.service";
 import { AuthController } from "./auth.controller";
 import { JwtStrategy } from "./jwt.strategy";
 import { JwtAuthGuard } from "./jwt-auth.guard";
-import { RefreshGuard } from "./refresh.guard";
+import { RefreshTokenGuard } from "./refresh.guard";
 
 @Module({
   imports: [
@@ -18,7 +18,7 @@ import { RefreshGuard } from "./refresh.guard";
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, JwtStrategy, JwtAuthGuard, RefreshGuard],
+  providers: [AuthService, JwtStrategy, JwtAuthGuard, RefreshTokenGuard],
   exports: [AuthService],
 })
 export class AuthModule {}

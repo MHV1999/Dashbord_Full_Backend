@@ -13,7 +13,7 @@ import { AuthService } from "./auth.service";
  * validates via AuthService.validateRefreshToken(), and attaches token record.
  */
 @Injectable()
-export class RefreshGuard implements CanActivate {
+export class RefreshTokenGuard implements CanActivate {
   constructor(private readonly authService: AuthService) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
