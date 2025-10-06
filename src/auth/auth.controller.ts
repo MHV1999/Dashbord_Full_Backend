@@ -19,6 +19,7 @@ import {
 } from "@nestjs/swagger";
 import { Response, Request } from "express";
 import { User } from "@prisma/client";
+import { IsEmail, IsString } from "class-validator";
 import { AuthService } from "./auth.service";
 import { JwtAuthGuard } from "./jwt-auth.guard";
 import { RefreshTokenGuard } from "./refresh.guard";
@@ -28,7 +29,10 @@ interface RequestWithUser extends Request {
 }
 
 class LoginDto {
+  @IsEmail()
   email: string;
+
+  @IsString()
   password: string;
 }
 
