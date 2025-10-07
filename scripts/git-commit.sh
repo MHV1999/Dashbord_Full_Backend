@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="docs(test): add manual postman test guide"
+DEFAULT_MSG="chore(repo): add verify script and final checklist"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present
