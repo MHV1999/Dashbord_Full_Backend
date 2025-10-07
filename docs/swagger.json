@@ -12,6 +12,10 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/LoginDto"
+              },
+              "example": {
+                "email": "admin@example.com",
+                "password": "admin123"
               }
             }
           }
@@ -23,6 +27,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/LoginResponse"
+                },
+                "example": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                  "expiresIn": 900
                 }
               }
             }
@@ -48,6 +56,10 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/LoginResponse"
+                },
+                "example": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                  "expiresIn": 900
                 }
               }
             }
@@ -212,6 +224,11 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateUserDto"
+              },
+              "example": {
+                "email": "user@example.com",
+                "name": "John Doe",
+                "password": "newpassword123"
               }
             }
           }
