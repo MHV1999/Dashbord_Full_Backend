@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="ci(github): add CI workflow for tests and build"
+DEFAULT_MSG="chore(docker): add production dockerfile and compose"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present
