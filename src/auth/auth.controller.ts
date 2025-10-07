@@ -16,6 +16,7 @@ import {
   ApiBody,
   ApiCookieAuth,
   ApiBearerAuth,
+  ApiProperty,
 } from "@nestjs/swagger";
 import { Response, Request } from "express";
 import { User } from "@prisma/client";
@@ -29,15 +30,20 @@ export interface RequestWithUser extends Request {
 }
 
 class LoginDto {
+  @ApiProperty({ example: 'admin@example.com' })
   @IsEmail()
   email: string;
 
+  @ApiProperty({ example: 'admin123' })
   @IsString()
   password: string;
 }
 
 class LoginResponse {
+  @ApiProperty({ example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...' })
   accessToken: string;
+
+  @ApiProperty({ example: 900 })
   expiresIn: number;
 }
 

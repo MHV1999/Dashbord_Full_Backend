@@ -18,6 +18,11 @@ async function bootstrap() {
     transform: true,
   }));
 
+  // Redirect root to /api
+  app.getHttpAdapter().get('/', (req, res) => {
+    res.redirect('/api');
+  });
+
   const config = new DocumentBuilder()
     .setTitle('API')
     .setDescription('API description')
