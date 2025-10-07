@@ -175,7 +175,18 @@ export class AuthController {
   @Get("me")
   @UseGuards(JwtAuthGuard)
   @ApiOperation({ summary: "Get current user info" })
-  @ApiResponse({ status: 200, description: "User info" })
+  @ApiResponse({
+    status: 200,
+    description: "User info",
+    schema: {
+      type: 'object',
+      properties: {
+        id: { type: 'string', example: 'user_id_here' },
+        email: { type: 'string', example: 'user@example.com' },
+        name: { type: 'string', example: 'John Doe' },
+      },
+    },
+  })
   @ApiResponse({ status: 401, description: "Unauthorized" })
   async me(@Req() req: RequestWithUser) {
     const { id, email, name } = req.user;
