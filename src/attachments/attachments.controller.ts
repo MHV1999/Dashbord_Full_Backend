@@ -3,6 +3,9 @@ import {
   Post,
   Body,
   UseGuards,
+  UseInterceptors,
+  UploadedFile,
+  BadRequestException,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -11,6 +14,8 @@ import {
   ApiBody,
   ApiBearerAuth,
 } from '@nestjs/swagger';
+import { FileInterceptor } from '@nestjs/platform-express';
+import * as multer from 'multer';
 import { AttachmentsService } from './attachments.service';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { IsString, IsNumber, IsPositive } from 'class-validator';
@@ -38,6 +43,18 @@ class ConfirmDto {
   issueId: string;
 }
 
+const uploadFileOptions = {
+  storage: multer.memoryStorage(),
+  limits: { fileSize: Number(process.env.MAX_UPLOAD_BYTES || 5 * 1024 * 1024) },
+  fileFilter: (req: any, file: Express.Multer.File, cb: Function) => {
+    const allowed = ['image/png', 'image/jpeg', 'application/pdf', 'text/plain'];
+    if (!allowed.includes(file.mimetype)) {
+      return cb(new BadRequestException('Invalid file type'), false);
+    }
+    cb(null, true);
+  },
+};
+
 @ApiTags('attachments')
 @Controller('attachments')
 @UseGuards(JwtAuthGuard)
@@ -59,5 +76,14 @@ export class AttachmentsController {
   @ApiResponse({ status: 201, description: 'Attachment created' })
   confirm(@Body() confirmDto: ConfirmDto) {
     return this.attachmentsService.confirmUpload(confirmDto.objectKey, confirmDto.issueId);
+  }
+
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file', uploadFileOptions))
+  @ApiOperation({ summary: 'Upload file directly' })
+  @ApiResponse({ status: 201, description: 'File uploaded' })
+  async upload(@UploadedFile() file: Express.Multer.File, @Body() body: { issueId: string }) {
+    if (!file) throw new BadRequestException('No file provided');
+    return this.attachmentsService.createFromFile(file, body.issueId);
   }
 }

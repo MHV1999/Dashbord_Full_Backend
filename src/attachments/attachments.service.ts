@@ -75,4 +75,33 @@ export class AttachmentsService {
       },
     });
   }
+
+  async createFromFile(file: Express.Multer.File, issueId: string): Promise<Attachment> {
+    // Validate issue exists
+    const issue = await this.prisma.issue.findUnique({ where: { id: issueId } });
+    if (!issue) {
+      throw new BadRequestException('Issue not found');
+    }
+
+    const objectKey = `attachments/${issueId}/${Date.now()}-${file.originalname}`;
+    const bucket = process.env.S3_BUCKET!;
+
+    const command = new PutObjectCommand({
+      Bucket: bucket,
+      Key: objectKey,
+      Body: file.buffer,
+      ContentType: file.mimetype,
+    });
+
+    await this.s3Client.send(command);
+
+    const publicUrl = `https://${bucket}.s3.${process.env.S3_REGION}.amazonaws.com/${objectKey}`;
+
+    return this.prisma.attachment.create({
+      data: {
+        url: publicUrl,
+        issueId,
+      },
+    });
+  }
 }

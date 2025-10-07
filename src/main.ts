@@ -3,51 +3,57 @@ import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  if (process.env.SKIP_DB !== 'true') {
-    dotenv.config();
-  }
+  dotenv.config();
+
   const app = await NestFactory.create(AppModule);
 
-  app.use(cookieParser());
-  app.useGlobalPipes(new ValidationPipe({
-    whitelist: true,
-    forbidNonWhitelisted: true,
-    transform: true,
-  }));
+  // Security headers
+  app.use(helmet());
 
-  // Redirect root to /api
-  app.getHttpAdapter().get('/', (req, res) => {
-    res.redirect('/api');
+  // CORS configuration
+  app.enableCors({
+    origin: process.env.CORS_ORIGIN
+      ? process.env.CORS_ORIGIN.split(',')
+      : ['http://localhost:3000'],
+    credentials: true,
   });
 
+  // Rate limiter
+  app.use(
+    rateLimit({
+      windowMs: Number(process.env.RATE_LIMIT_WINDOW_MS || 15 * 60 * 1000),
+      max: Number(process.env.RATE_LIMIT_MAX || 100),
+      standardHeaders: true,
+      legacyHeaders: false,
+    }),
+  );
+
+  app.use(cookieParser());
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      transform: true,
+      forbidNonWhitelisted: true,
+    }),
+  );
+
   const config = new DocumentBuilder()
-    .setTitle('API')
-    .setDescription('API description')
+    .setTitle('Dashboard API')
+    .setDescription('API documentation for Dashboard backend')
     .setVersion('1.0')
-    .addTag('auth')
-    .addBearerAuth(
-      {
-        type: 'http',
-        scheme: 'bearer',
-        bearerFormat: 'JWT',
-        name: 'JWT',
-        description: 'Enter JWT token',
-        in: 'header',
-      },
-      'JWT-auth',
-    )
-    .addCookieAuth('refresh_token', {
-      type: 'apiKey',
-      in: 'cookie',
-      name: 'refresh_token',
-    })
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  SwaggerModule.setup('docs', app, document);
 
-  await app.listen(3000);
+  const port = Number(process.env.PORT || 3000);
+  await app.listen(port);
+  console.log(`🚀 Server running on port ${port}`);
 }
 bootstrap();
