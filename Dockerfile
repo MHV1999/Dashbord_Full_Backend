@@ -12,6 +12,8 @@ COPY package*.json ./
 # install dev deps to be able to build (TypeScript compile, etc.)
 RUN npm ci
 COPY . .
+# generate Prisma client
+RUN npx prisma generate
 # build the project (assumes "build" script compiles to dist/)
 RUN npm run build
 
