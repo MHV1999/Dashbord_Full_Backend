@@ -9,7 +9,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "a531ed45-e3af-46e3-8a1f-624b695997ba",
+                            "id": "2ec8a05a-1382-4e66-9e16-5fad320048ec",
                             "name": "Login user",
                             "request": {
                                 "name": "Login user",
@@ -50,7 +50,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "a4fabf26-5fb8-498b-b9fb-8561cba99042",
+                                    "id": "c6d06c3d-3c43-4cc4-8b10-1e6e786865d0",
                                     "name": "Login successful",
                                     "originalRequest": {
                                         "url": {
@@ -99,7 +99,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "294c13bd-b6f5-444f-b63e-b518879010f4",
+                                    "id": "c409c44b-b7f4-468e-91c6-4d870ea89a7b",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -150,7 +150,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "61e80944-5d30-4015-8d49-59aa10762a11",
+                            "id": "346ffc4c-135d-4e90-a1a0-7655915e0541",
                             "name": "Refresh access token",
                             "request": {
                                 "name": "Refresh access token",
@@ -178,7 +178,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "733ce826-956d-4a08-9d8f-6b7fffd95eba",
+                                    "id": "bab312e0-16fe-4189-9e0f-aa1416f3beb4",
                                     "name": "Token refreshed",
                                     "originalRequest": {
                                         "url": {
@@ -214,7 +214,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "9cadea3c-29ae-46f0-ad34-a4af8d2f2a56",
+                                    "id": "49389bba-8a04-4c09-92a1-14fcea019bc8",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -250,7 +250,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "cb0678fa-e893-439d-ae1d-91a454bdb8c4",
+                            "id": "1e611d6f-51ad-44da-bf44-246fe67f7db6",
                             "name": "Logout user",
                             "request": {
                                 "name": "Logout user",
@@ -272,7 +272,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "bbede34f-60c8-4109-85c5-e113ba037b89",
+                                    "id": "65fbdc19-199f-4458-97e5-ff9a52246bb4",
                                     "name": "Logged out",
                                     "originalRequest": {
                                         "url": {
@@ -308,7 +308,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "bcf97b4e-99b7-49c9-989f-a135377e8b05",
+                            "id": "11763412-8f0c-4ea8-bb18-cb1a4199e4ff",
                             "name": "Get current user info",
                             "request": {
                                 "name": "Get current user info",
@@ -336,7 +336,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "03f3f61a-beee-4d32-b075-567b38939e81",
+                                    "id": "6a076bf2-1601-4ada-afb1-06de6fedb6e9",
                                     "name": "User info",
                                     "originalRequest": {
                                         "url": {
@@ -372,7 +372,7 @@
                                     "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "707dc1ca-1f64-4042-9027-429735e7cee3",
+                                    "id": "5567ca47-981c-4cd1-a7c4-247977b7d369",
                                     "name": "Unauthorized",
                                     "originalRequest": {
                                         "url": {
@@ -410,7 +410,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "286e40da-f873-4f66-b6ed-aac885318ea4",
+                    "id": "bb238b39-44bc-438d-84fb-35fda7acce34",
                     "name": "Get all users with pagination",
                     "request": {
                         "name": "Get all users with pagination",
@@ -444,13 +444,19 @@
                             ],
                             "variable": []
                         },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
                         "method": "GET",
                         "body": {},
                         "auth": null
                     },
                     "response": [
                         {
-                            "id": "06d0300e-98cf-4057-bfc4-41242d584786",
+                            "id": "d1a31059-8645-446f-9c14-a81d9313a5dd",
                             "name": "List of users",
                             "originalRequest": {
                                 "url": {
@@ -482,14 +488,26 @@
                                     ],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {}
                             },
                             "status": "OK",
                             "code": 200,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"<string>\"\n  }\n]",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -502,7 +520,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "5d4f0d6e-5f07-4e2f-8d00-f2ba56ff26a1",
+                            "id": "2a9f7ce1-c75f-40fb-99e1-36915b27cf2b",
                             "name": "Get user by ID",
                             "request": {
                                 "name": "Get user by ID",
@@ -529,13 +547,19 @@
                                         }
                                     ]
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "de4f7791-5c15-47ca-8e8e-1b9d2b0fdc2a",
+                                    "id": "2c4a2c4d-2969-4d36-86b5-5cdb582cb98b",
                                     "name": "User details",
                                     "originalRequest": {
                                         "url": {
@@ -549,17 +573,29 @@
                                             "query": [],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "7cfff336-e042-4675-a206-6c7685220556",
+                                    "id": "35e306a7-0850-44ba-918f-671bec5b2466",
                                     "name": "User not found",
                                     "originalRequest": {
                                         "url": {
@@ -589,7 +625,7 @@
                             }
                         },
                         {
-                            "id": "f45e4052-ac84-4c9f-9ac7-94533e1c1bfc",
+                            "id": "8197f6b8-c1c0-4a70-b647-44b7b661e189",
                             "name": "Update user",
                             "request": {
                                 "name": "Update user",
@@ -620,6 +656,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "PATCH",
@@ -637,7 +677,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "521fd0e8-b383-4943-87aa-502c6f2d7c28",
+                                    "id": "2a520fe4-9913-49b1-9458-259e038e1313",
                                     "name": "Updated user",
                                     "originalRequest": {
                                         "url": {
@@ -655,6 +695,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "PATCH",
@@ -671,12 +715,18 @@
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"email\": \"<string>\",\n  \"name\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "73b6dc1a-c5a5-4e9f-9980-887cd74c1290",
+                                    "id": "cf900b41-2200-42f0-85e5-6ddd7f653241",
                                     "name": "User not found",
                                     "originalRequest": {
                                         "url": {
@@ -721,7 +771,7 @@
                             }
                         },
                         {
-                            "id": "56c4209d-a946-43b8-9b59-567411a44749",
+                            "id": "dc60edf1-6d81-4661-bcb4-2dcd1f9e8e32",
                             "name": "Delete user (admin only)",
                             "request": {
                                 "name": "Delete user (admin only)",
@@ -754,7 +804,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "9ed076d7-c988-4478-a919-524efda26ac9",
+                                    "id": "7026850f-0935-46c2-8061-1766a437bc6f",
                                     "name": "User deleted",
                                     "originalRequest": {
                                         "url": {
@@ -778,7 +828,7 @@
                                     "_postman_previewlanguage": "text"
                                 },
                                 {
-                                    "id": "172e743e-6944-4d1b-877c-db56a8bc9a87",
+                                    "id": "e46c2eae-deba-40ea-a422-a1f75a54e9dd",
                                     "name": "Forbidden",
                                     "originalRequest": {
                                         "url": {
@@ -802,7 +852,7 @@
                                     "_postman_previewlanguage": "text"
                                 },
                                 {
-                                    "id": "163c0d5a-dbab-45cc-8d43-018c8e8d3519",
+                                    "id": "80b7766a-1fbe-4f44-99d5-e8fbd33798c7",
                                     "name": "User not found",
                                     "originalRequest": {
                                         "url": {
@@ -836,7 +886,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "91a8704c-32a1-49d7-99df-b4b60e8ce187",
+                                    "id": "bf56b6fd-1ddf-48ec-8d7f-8c46148e54e6",
                                     "name": "Get user permissions",
                                     "request": {
                                         "name": "Get user permissions",
@@ -864,13 +914,19 @@
                                                 }
                                             ]
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {},
                                         "auth": null
                                     },
                                     "response": [
                                         {
-                                            "id": "ca78676b-01a7-4277-9e44-99e11a647c60",
+                                            "id": "e283f823-a171-400b-b819-6ef86fd60b8d",
                                             "name": "User permissions",
                                             "originalRequest": {
                                                 "url": {
@@ -885,17 +941,29 @@
                                                     "query": [],
                                                     "variable": []
                                                 },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
                                                 "method": "GET",
                                                 "body": {}
                                             },
                                             "status": "OK",
                                             "code": 200,
-                                            "header": [],
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n]",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         },
                                         {
-                                            "id": "f3c54a7b-dfe5-4dab-9eab-e463f716e05b",
+                                            "id": "398e1b8f-f07b-4cf5-b7fd-4b4dbc44b3fb",
                                             "name": "User not found",
                                             "originalRequest": {
                                                 "url": {
@@ -936,7 +1004,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "627578cd-1001-49f1-a777-3a0324eabe24",
+                    "id": "83ad015c-dea8-4a0b-840b-d8c7892cf6b0",
                     "name": "Create role",
                     "request": {
                         "name": "Create role",
@@ -955,6 +1023,10 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
                             }
                         ],
                         "method": "POST",
@@ -972,7 +1044,7 @@
                     },
                     "response": [
                         {
-                            "id": "8e8ea52c-44ff-43e7-8a2b-627bce398735",
+                            "id": "e9c14fe4-4931-45c5-8409-57570d3d4311",
                             "name": "Role created",
                             "originalRequest": {
                                 "url": {
@@ -988,6 +1060,10 @@
                                 "header": [
                                     {
                                         "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
                                         "value": "application/json"
                                     }
                                 ],
@@ -1005,9 +1081,15 @@
                             },
                             "status": "Created",
                             "code": 201,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -1016,7 +1098,7 @@
                     }
                 },
                 {
-                    "id": "73a319cc-2ddd-4126-be94-9d356b360676",
+                    "id": "7900e702-d102-4350-a952-869deb7bccaa",
                     "name": "Get all roles",
                     "request": {
                         "name": "Get all roles",
@@ -1031,13 +1113,19 @@
                             "query": [],
                             "variable": []
                         },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
                         "method": "GET",
                         "body": {},
                         "auth": null
                     },
                     "response": [
                         {
-                            "id": "46d143bf-7c54-4cef-abfb-875c2b9c43c4",
+                            "id": "7a4581c6-c353-4eb3-9cb8-45b487ce96b8",
                             "name": "List of roles",
                             "originalRequest": {
                                 "url": {
@@ -1050,14 +1138,26 @@
                                     "query": [],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {}
                             },
                             "status": "OK",
                             "code": 200,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n]",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -1070,7 +1170,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "7b113021-6fb7-44ab-8418-ab11614c6a2b",
+                            "id": "b2383824-6947-40fb-b22f-f46876e6fe79",
                             "name": "Get role by ID",
                             "request": {
                                 "name": "Get role by ID",
@@ -1097,13 +1197,19 @@
                                         }
                                     ]
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "a65a4ffa-86e2-4dce-a5ec-10613287f438",
+                                    "id": "b82dce98-0ca9-42e4-acb8-da679d4950f7",
                                     "name": "Role details",
                                     "originalRequest": {
                                         "url": {
@@ -1117,17 +1223,29 @@
                                             "query": [],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "df4d11ee-3017-418a-ba3f-08fbf41a4063",
+                                    "id": "2d302d6c-e759-43df-a27a-a42d39579d86",
                                     "name": "Role not found",
                                     "originalRequest": {
                                         "url": {
@@ -1157,7 +1275,7 @@
                             }
                         },
                         {
-                            "id": "f713d1fd-77bb-43a8-a08b-233f5fa7004f",
+                            "id": "6a89319c-48bc-4a70-bf6a-e49f91310225",
                             "name": "Update role",
                             "request": {
                                 "name": "Update role",
@@ -1188,6 +1306,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "PATCH",
@@ -1205,7 +1327,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "a072b363-6c1d-4a75-be43-1e7b8d610fcd",
+                                    "id": "3281500a-a4f9-4159-ac59-2c1a2a386c06",
                                     "name": "Role updated",
                                     "originalRequest": {
                                         "url": {
@@ -1223,6 +1345,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "PATCH",
@@ -1239,12 +1365,18 @@
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "30317075-d866-455f-8bfa-15afe157dd07",
+                                    "id": "9312ba86-b9a5-4861-b4e9-68c8f8c1c9db",
                                     "name": "Role not found",
                                     "originalRequest": {
                                         "url": {
@@ -1289,7 +1421,7 @@
                             }
                         },
                         {
-                            "id": "ec8b84b7-b917-41bc-b6f6-0b096af37eb6",
+                            "id": "f78b5128-760f-491a-9861-6bb60d9c999d",
                             "name": "Delete role",
                             "request": {
                                 "name": "Delete role",
@@ -1322,7 +1454,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "7cd7bb20-4bb5-4ebc-84c4-635954c2fa6f",
+                                    "id": "dffc094c-37f2-4b84-8ab4-d45d32a35f56",
                                     "name": "Role deleted",
                                     "originalRequest": {
                                         "url": {
@@ -1346,7 +1478,7 @@
                                     "_postman_previewlanguage": "text"
                                 },
                                 {
-                                    "id": "29429f7e-6f58-43f7-841c-a1d29cf5f43a",
+                                    "id": "ca81ec37-08f7-42c7-a0a9-ea530611a97a",
                                     "name": "Role not found",
                                     "originalRequest": {
                                         "url": {
@@ -1386,7 +1518,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "160c919c-8500-459d-9fca-3343f3be62b1",
+                                    "id": "7397ead3-b315-4dcc-af35-de34659343b1",
                                     "name": "Assign role to user",
                                     "request": {
                                         "name": "Assign role to user",
@@ -1418,6 +1550,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -1435,7 +1571,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "6bd8c30a-d5e6-424e-8eb1-012703d8beba",
+                                            "id": "b40886a0-dc53-44e8-a456-a8ca9cc10429",
                                             "name": "Role assigned",
                                             "originalRequest": {
                                                 "url": {
@@ -1454,6 +1590,10 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "POST",
@@ -1470,9 +1610,15 @@
                                             },
                                             "status": "OK",
                                             "code": 200,
-                                            "header": [],
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"message\": \"<string>\"\n}",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -1491,7 +1637,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "e2fd6493-9fcc-4124-88ab-d1c6771a10a5",
+                    "id": "39a198db-b476-44b2-be4f-8d23a11d69d8",
                     "name": "Create permission",
                     "request": {
                         "name": "Create permission",
@@ -1510,6 +1656,10 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
                             }
                         ],
                         "method": "POST",
@@ -1527,7 +1677,7 @@
                     },
                     "response": [
                         {
-                            "id": "4edc86b9-9ff5-4439-aa4d-68fa987b152a",
+                            "id": "10059f82-0ef7-4516-a3ae-e64bebce48c6",
                             "name": "Permission created",
                             "originalRequest": {
                                 "url": {
@@ -1543,6 +1693,10 @@
                                 "header": [
                                     {
                                         "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
                                         "value": "application/json"
                                     }
                                 ],
@@ -1560,9 +1714,15 @@
                             },
                             "status": "Created",
                             "code": 201,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -1571,7 +1731,7 @@
                     }
                 },
                 {
-                    "id": "9819989f-df1c-4d1c-b5fb-46c28df8d5dc",
+                    "id": "069cfc95-621a-4c8a-8d6f-9474dfe735be",
                     "name": "Get all permissions",
                     "request": {
                         "name": "Get all permissions",
@@ -1586,13 +1746,19 @@
                             "query": [],
                             "variable": []
                         },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
                         "method": "GET",
                         "body": {},
                         "auth": null
                     },
                     "response": [
                         {
-                            "id": "e010c32d-ef61-48f8-b810-3bb67928feb0",
+                            "id": "ec0f4367-aa66-43a7-9678-5378cb77cb87",
                             "name": "List of permissions",
                             "originalRequest": {
                                 "url": {
@@ -1605,14 +1771,26 @@
                                     "query": [],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {}
                             },
                             "status": "OK",
                             "code": 200,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n]",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -1625,7 +1803,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "551edba5-8112-4898-aed4-7853e66d6d46",
+                            "id": "b2a54d07-47f0-47b0-a8be-78a6ab3cb0e0",
                             "name": "Get permission by ID",
                             "request": {
                                 "name": "Get permission by ID",
@@ -1652,13 +1830,19 @@
                                         }
                                     ]
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "e6d70035-85cb-4a34-adce-6e586b764526",
+                                    "id": "0bd0e00f-1657-480e-9126-726a312ebc3e",
                                     "name": "Permission details",
                                     "originalRequest": {
                                         "url": {
@@ -1672,17 +1856,29 @@
                                             "query": [],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "7749eb5d-39b8-44e6-a542-0c6b675d5df5",
+                                    "id": "21949230-c54e-45ff-98dc-4181054fcc13",
                                     "name": "Permission not found",
                                     "originalRequest": {
                                         "url": {
@@ -1712,7 +1908,7 @@
                             }
                         },
                         {
-                            "id": "27e18465-83a0-4451-9644-b80b67f7fd64",
+                            "id": "a48bbc87-47b3-40bd-90b6-b58f839cac71",
                             "name": "Update permission",
                             "request": {
                                 "name": "Update permission",
@@ -1743,6 +1939,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "PATCH",
@@ -1760,7 +1960,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "a14f0c9b-a517-4bd8-8adc-82d5a6522d40",
+                                    "id": "29f81049-e930-4249-9e99-3b64d46d58ea",
                                     "name": "Permission updated",
                                     "originalRequest": {
                                         "url": {
@@ -1778,6 +1978,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "PATCH",
@@ -1794,12 +1998,18 @@
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "a51d6001-e9a2-4b77-8e4c-04a219f7eda9",
+                                    "id": "236dbb94-3f72-46ab-b28c-60097cc5e4ab",
                                     "name": "Permission not found",
                                     "originalRequest": {
                                         "url": {
@@ -1844,7 +2054,7 @@
                             }
                         },
                         {
-                            "id": "10a0acda-6854-4aac-a0f1-72bcdac025cb",
+                            "id": "352bf82d-bd51-4b69-8fff-52e0407171db",
                             "name": "Delete permission",
                             "request": {
                                 "name": "Delete permission",
@@ -1877,7 +2087,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "bf069d66-c2fe-4c92-8a45-4e7ece67a21b",
+                                    "id": "bbce2074-17f1-4a51-a1f6-e99c42b52dec",
                                     "name": "Permission deleted",
                                     "originalRequest": {
                                         "url": {
@@ -1901,7 +2111,7 @@
                                     "_postman_previewlanguage": "text"
                                 },
                                 {
-                                    "id": "8ce3ecfc-b00f-487e-85cc-493b50c42d69",
+                                    "id": "4f499b0c-ae7d-45e3-bfcb-8635cf290436",
                                     "name": "Permission not found",
                                     "originalRequest": {
                                         "url": {
@@ -1939,7 +2149,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "eb49ae71-69a8-44fc-befc-d00c5c3c7752",
+                    "id": "7eab2cd2-d67f-42d6-b88c-4f5bef10e2ac",
                     "name": "Create project",
                     "request": {
                         "name": "Create project",
@@ -1958,6 +2168,10 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
                             }
                         ],
                         "method": "POST",
@@ -1975,7 +2189,7 @@
                     },
                     "response": [
                         {
-                            "id": "0960bcdf-6ef6-4c83-bd29-e012d7747e03",
+                            "id": "a10ea0cb-03f6-4b09-a7b8-40006a5c8e1d",
                             "name": "Project created",
                             "originalRequest": {
                                 "url": {
@@ -1991,6 +2205,10 @@
                                 "header": [
                                     {
                                         "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
                                         "value": "application/json"
                                     }
                                 ],
@@ -2008,9 +2226,15 @@
                             },
                             "status": "Created",
                             "code": 201,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"organizationId\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -2019,7 +2243,7 @@
                     }
                 },
                 {
-                    "id": "1d062781-d298-45c6-9cd0-27c03e145a90",
+                    "id": "740d966c-7d7e-43ea-abe6-bb995aa0f28f",
                     "name": "Get all projects",
                     "request": {
                         "name": "Get all projects",
@@ -2044,13 +2268,19 @@
                             ],
                             "variable": []
                         },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
                         "method": "GET",
                         "body": {},
                         "auth": null
                     },
                     "response": [
                         {
-                            "id": "548f8e85-4547-4842-a04d-dd7f847ec2fe",
+                            "id": "2977d8f4-b428-4b6d-bd17-4ebeb11803a8",
                             "name": "List of projects",
                             "originalRequest": {
                                 "url": {
@@ -2073,14 +2303,26 @@
                                     ],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {}
                             },
                             "status": "OK",
                             "code": 200,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"organizationId\": \"<string>\",\n    \"ownerId\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"organizationId\": \"<string>\",\n    \"ownerId\": \"<string>\"\n  }\n]",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -2093,7 +2335,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "38ece683-04c2-442a-abe6-17ec79654a00",
+                            "id": "d63395bd-8589-4d15-9f74-174583ff1d92",
                             "name": "Get project by ID",
                             "request": {
                                 "name": "Get project by ID",
@@ -2120,13 +2362,19 @@
                                         }
                                     ]
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "956dc89e-35d9-40ff-ad8d-b70f4f6fe25b",
+                                    "id": "84b9f6dd-0ad6-4cef-83c5-af26342a2559",
                                     "name": "Project details",
                                     "originalRequest": {
                                         "url": {
@@ -2140,17 +2388,29 @@
                                             "query": [],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"organizationId\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "fba5eb29-a740-4040-8dca-9da3b6c3dbd3",
+                                    "id": "03738bf6-2b29-402b-aa6f-55c737d7f04e",
                                     "name": "Project not found",
                                     "originalRequest": {
                                         "url": {
@@ -2180,7 +2440,7 @@
                             }
                         },
                         {
-                            "id": "1750293a-5014-40c4-9272-1a9e79aa3aa7",
+                            "id": "8edc5f47-a939-4ec6-80df-a848dbf9f1c9",
                             "name": "Update project",
                             "request": {
                                 "name": "Update project",
@@ -2211,6 +2471,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "PATCH",
@@ -2228,7 +2492,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "dc2d91d6-2102-46b2-acc6-0d7f6066672c",
+                                    "id": "a4d608c6-9c2b-4abe-8955-63f70cc1aebf",
                                     "name": "Project updated",
                                     "originalRequest": {
                                         "url": {
@@ -2246,6 +2510,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "PATCH",
@@ -2262,12 +2530,18 @@
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"organizationId\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "429bab54-4a5a-4063-8e69-77d0feb63eed",
+                                    "id": "c5d79b20-8283-428f-a3fc-bb7ac2917b9f",
                                     "name": "Project not found",
                                     "originalRequest": {
                                         "url": {
@@ -2312,7 +2586,7 @@
                             }
                         },
                         {
-                            "id": "bc727abe-6548-4fa3-be2e-87d0e25600b9",
+                            "id": "c65cb4da-1e92-40bc-b142-5daf54907179",
                             "name": "Delete project",
                             "request": {
                                 "name": "Delete project",
@@ -2345,7 +2619,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "a8f5df63-2c2b-4498-8c5c-be5e713f7e08",
+                                    "id": "64069782-0e8e-41cc-96e3-a0bc7d659e98",
                                     "name": "Project deleted",
                                     "originalRequest": {
                                         "url": {
@@ -2369,7 +2643,7 @@
                                     "_postman_previewlanguage": "text"
                                 },
                                 {
-                                    "id": "fdfcc4ba-ca8b-436f-8df0-c52bf2b90fd3",
+                                    "id": "643c0963-0033-46bc-aaa3-624b88c8e6d8",
                                     "name": "Project not found",
                                     "originalRequest": {
                                         "url": {
@@ -2403,7 +2677,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "4989421d-9222-4483-baa2-839496c16d4a",
+                                    "id": "aa014482-d0fb-4c10-af47-02a47f44727a",
                                     "name": "Add member to project",
                                     "request": {
                                         "name": "Add member to project",
@@ -2435,6 +2709,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -2452,7 +2730,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "189bee80-8da8-43e3-b7fe-b0139e2bb79f",
+                                            "id": "5e965d06-92b2-412a-a568-65b146ffe60a",
                                             "name": "Member added",
                                             "originalRequest": {
                                                 "url": {
@@ -2471,6 +2749,10 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "POST",
@@ -2487,9 +2769,15 @@
                                             },
                                             "status": "OK",
                                             "code": 200,
-                                            "header": [],
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"message\": \"<string>\"\n}",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -2502,7 +2790,7 @@
                                     "description": "",
                                     "item": [
                                         {
-                                            "id": "ac297212-183b-4a88-93d6-367dd9eab764",
+                                            "id": "44e1217a-9470-4950-8ec2-43e83315709c",
                                             "name": "Remove member from project",
                                             "request": {
                                                 "name": "Remove member from project",
@@ -2541,13 +2829,19 @@
                                                         }
                                                     ]
                                                 },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
                                                 "method": "DELETE",
                                                 "body": {},
                                                 "auth": null
                                             },
                                             "response": [
                                                 {
-                                                    "id": "112c8b73-65f9-40ed-a4c3-026e63e5ac2f",
+                                                    "id": "33ea91ae-80c4-45e0-a490-bed02f1b87f2",
                                                     "name": "Member removed",
                                                     "originalRequest": {
                                                         "url": {
@@ -2563,14 +2857,26 @@
                                                             "query": [],
                                                             "variable": []
                                                         },
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
                                                         "method": "DELETE",
                                                         "body": {}
                                                     },
                                                     "status": "OK",
                                                     "code": 200,
-                                                    "header": [],
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "body": "{\n  \"message\": \"<string>\"\n}",
                                                     "cookie": [],
-                                                    "_postman_previewlanguage": "text"
+                                                    "_postman_previewlanguage": "json"
                                                 }
                                             ],
                                             "event": [],
@@ -2593,7 +2899,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "2d31b4bd-0fa2-4082-b85e-42b3676c5e63",
+                                    "id": "b522d7a1-5a72-458f-9d1c-5c2fc971f72d",
                                     "name": "Create issue",
                                     "request": {
                                         "name": "Create issue",
@@ -2625,6 +2931,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -2642,7 +2952,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "b3603e5e-ae2b-4acb-a1c3-f002fabee228",
+                                            "id": "b56c6dd4-4efc-4dd7-a68f-6c7a685a2576",
                                             "name": "Issue created",
                                             "originalRequest": {
                                                 "url": {
@@ -2661,6 +2971,10 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "POST",
@@ -2677,9 +2991,15 @@
                                             },
                                             "status": "Created",
                                             "code": 201,
-                                            "header": [],
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"listId\": \"<string>\",\n  \"assigneeId\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -2688,7 +3008,7 @@
                                     }
                                 },
                                 {
-                                    "id": "a02dc6f0-b59c-4e3d-a9aa-d561cee146c0",
+                                    "id": "c456b4eb-b269-45d0-a754-43e1232fe036",
                                     "name": "Get all issues in project",
                                     "request": {
                                         "name": "Get all issues in project",
@@ -2753,13 +3073,19 @@
                                                 }
                                             ]
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {},
                                         "auth": null
                                     },
                                     "response": [
                                         {
-                                            "id": "b6549fe8-b1c9-4c02-a1a3-d1d16d5b1c96",
+                                            "id": "edfffade-5c55-40dc-a9f6-fd3beaff30b8",
                                             "name": "List of issues",
                                             "originalRequest": {
                                                 "url": {
@@ -2811,14 +3137,26 @@
                                                     ],
                                                     "variable": []
                                                 },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
                                                 "method": "GET",
                                                 "body": {}
                                             },
                                             "status": "OK",
                                             "code": 200,
-                                            "header": [],
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"listId\": \"<string>\",\n    \"assigneeId\": \"<string>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"listId\": \"<string>\",\n    \"assigneeId\": \"<string>\",\n    \"position\": \"<integer>\"\n  }\n]",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -2831,7 +3169,7 @@
                                     "description": "",
                                     "item": [
                                         {
-                                            "id": "ac1a9248-2279-4887-a297-0afad74113cf",
+                                            "id": "d39c4fae-7b2a-4d5f-8f49-1a4de91afa52",
                                             "name": "Get issue by ID",
                                             "request": {
                                                 "name": "Get issue by ID",
@@ -2864,13 +3202,19 @@
                                                         }
                                                     ]
                                                 },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
                                                 "method": "GET",
                                                 "body": {},
                                                 "auth": null
                                             },
                                             "response": [
                                                 {
-                                                    "id": "60263e23-b2e4-4e25-a424-d042f2ead917",
+                                                    "id": "39cce780-8b7e-48e1-b7b2-6f1568520e32",
                                                     "name": "Issue details",
                                                     "originalRequest": {
                                                         "url": {
@@ -2886,17 +3230,29 @@
                                                             "query": [],
                                                             "variable": []
                                                         },
+                                                        "header": [
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            }
+                                                        ],
                                                         "method": "GET",
                                                         "body": {}
                                                     },
                                                     "status": "OK",
                                                     "code": 200,
-                                                    "header": [],
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"listId\": \"<string>\",\n  \"assigneeId\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
                                                     "cookie": [],
-                                                    "_postman_previewlanguage": "text"
+                                                    "_postman_previewlanguage": "json"
                                                 },
                                                 {
-                                                    "id": "8f00ba39-e669-48a3-bcba-a50ff25034e5",
+                                                    "id": "1aba992e-7a3e-445b-808a-3701b262cbfb",
                                                     "name": "Issue not found",
                                                     "originalRequest": {
                                                         "url": {
@@ -2928,7 +3284,7 @@
                                             }
                                         },
                                         {
-                                            "id": "fe0d83fd-6d11-4a42-b46e-dbb9f196f4cb",
+                                            "id": "194cd2df-4428-4bc6-87a6-09ac6c82d16e",
                                             "name": "Update issue",
                                             "request": {
                                                 "name": "Update issue",
@@ -2971,6 +3327,10 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "PATCH",
@@ -2988,7 +3348,7 @@
                                             },
                                             "response": [
                                                 {
-                                                    "id": "489b4f1c-8347-4b1b-b87f-53a1432c6468",
+                                                    "id": "f670eaa5-0a28-4fc8-80bb-950567322fb8",
                                                     "name": "Issue updated",
                                                     "originalRequest": {
                                                         "url": {
@@ -3008,6 +3368,10 @@
                                                             {
                                                                 "key": "Content-Type",
                                                                 "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
                                                             }
                                                         ],
                                                         "method": "PATCH",
@@ -3024,12 +3388,18 @@
                                                     },
                                                     "status": "OK",
                                                     "code": 200,
-                                                    "header": [],
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "body": "{\n  \"id\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"listId\": \"<string>\",\n  \"assigneeId\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
                                                     "cookie": [],
-                                                    "_postman_previewlanguage": "text"
+                                                    "_postman_previewlanguage": "json"
                                                 },
                                                 {
-                                                    "id": "e1ecd6b3-78f7-4541-afc4-2ea265da256a",
+                                                    "id": "2dd95794-2cd8-4809-ad3f-76c6ee76cb06",
                                                     "name": "Issue not found",
                                                     "originalRequest": {
                                                         "url": {
@@ -3076,7 +3446,7 @@
                                             }
                                         },
                                         {
-                                            "id": "e2f9d3fe-c8eb-403e-8f94-68e8c37a0296",
+                                            "id": "1b3179f8-1ea1-43fe-88da-d18ca4d4007a",
                                             "name": "Delete issue",
                                             "request": {
                                                 "name": "Delete issue",
@@ -3121,7 +3491,7 @@
                                             },
                                             "response": [
                                                 {
-                                                    "id": "40146fed-c94c-4b81-b16a-00df1fc060f0",
+                                                    "id": "b930aa5e-cacc-4cda-9adb-bbb308caaff3",
                                                     "name": "Issue deleted",
                                                     "originalRequest": {
                                                         "url": {
@@ -3147,7 +3517,7 @@
                                                     "_postman_previewlanguage": "text"
                                                 },
                                                 {
-                                                    "id": "94ab4d97-3b5e-4697-ba30-37ed11e152a0",
+                                                    "id": "ccb89c98-969a-4b23-a1bf-bd526d1ade0c",
                                                     "name": "Issue not found",
                                                     "originalRequest": {
                                                         "url": {
@@ -3191,7 +3561,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "2aaed6f3-7f52-4726-b39e-adc5c4b28523",
+                    "id": "bffc93cd-808e-424f-a9b3-beac9a60bd2d",
                     "name": "Create board",
                     "request": {
                         "name": "Create board",
@@ -3210,6 +3580,10 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
                             }
                         ],
                         "method": "POST",
@@ -3227,7 +3601,7 @@
                     },
                     "response": [
                         {
-                            "id": "140e01cd-fcbb-486f-b5dd-d82c342ecbee",
+                            "id": "00ac30df-4349-488e-b8f3-cd1b5cae9ce5",
                             "name": "Board created",
                             "originalRequest": {
                                 "url": {
@@ -3243,6 +3617,10 @@
                                 "header": [
                                     {
                                         "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
                                         "value": "application/json"
                                     }
                                 ],
@@ -3260,9 +3638,15 @@
                             },
                             "status": "Created",
                             "code": 201,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -3271,7 +3655,7 @@
                     }
                 },
                 {
-                    "id": "0408c866-caa9-49a1-afac-ca1bc82e8593",
+                    "id": "9f63f2ab-3403-4997-a44b-32835fb62bae",
                     "name": "Get all boards",
                     "request": {
                         "name": "Get all boards",
@@ -3296,13 +3680,19 @@
                             ],
                             "variable": []
                         },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
                         "method": "GET",
                         "body": {},
                         "auth": null
                     },
                     "response": [
                         {
-                            "id": "01dedecc-49fb-4269-a35c-eec3b9a5fb39",
+                            "id": "09f26cf0-16fa-4962-8b42-85b57b65e8d1",
                             "name": "List of boards",
                             "originalRequest": {
                                 "url": {
@@ -3325,14 +3715,26 @@
                                     ],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {}
                             },
                             "status": "OK",
                             "code": 200,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"projectId\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"projectId\": \"<string>\"\n  }\n]",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -3345,7 +3747,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "d258ac03-47f6-4028-8b1c-0a70a5422796",
+                            "id": "941a1a27-3834-4bc7-b508-be5827a43023",
                             "name": "Get board by ID",
                             "request": {
                                 "name": "Get board by ID",
@@ -3372,13 +3774,19 @@
                                         }
                                     ]
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "911c7415-68b2-45ba-8792-05a1b876664b",
+                                    "id": "d791a6f6-c7f4-43f3-923d-70f6c5977d2d",
                                     "name": "Board details",
                                     "originalRequest": {
                                         "url": {
@@ -3392,17 +3800,29 @@
                                             "query": [],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "33799fe1-a66a-4e0e-a232-e114408e8d2a",
+                                    "id": "4556442e-181b-4500-b91a-a715a24db4f2",
                                     "name": "Board not found",
                                     "originalRequest": {
                                         "url": {
@@ -3432,7 +3852,7 @@
                             }
                         },
                         {
-                            "id": "ba76a234-1d0d-444c-86a2-efa416189a27",
+                            "id": "2447da41-cbe0-4c0a-b0f4-e39708c966f2",
                             "name": "Update board",
                             "request": {
                                 "name": "Update board",
@@ -3463,6 +3883,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "PATCH",
@@ -3480,7 +3904,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "3c1c6420-64f6-4f6e-ac03-012ce679dbc2",
+                                    "id": "d0366c18-00d8-4c73-88b2-112d0059778e",
                                     "name": "Board updated",
                                     "originalRequest": {
                                         "url": {
@@ -3498,6 +3922,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "PATCH",
@@ -3514,12 +3942,18 @@
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"projectId\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "f58ed3b2-7ce2-46e6-9a38-227614ecfa46",
+                                    "id": "a0500cc3-5efe-4523-8428-f23069dae58e",
                                     "name": "Board not found",
                                     "originalRequest": {
                                         "url": {
@@ -3564,7 +3998,7 @@
                             }
                         },
                         {
-                            "id": "0fb344c8-f02a-489b-ae19-67b3083368b4",
+                            "id": "6ba68d49-47a2-4008-8714-cf947a29929a",
                             "name": "Delete board",
                             "request": {
                                 "name": "Delete board",
@@ -3597,7 +4031,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "f7f37225-baff-4a44-8074-4b8b012f7ef9",
+                                    "id": "42b96f17-ed80-4300-b942-2505b367f7a3",
                                     "name": "Board deleted",
                                     "originalRequest": {
                                         "url": {
@@ -3621,7 +4055,7 @@
                                     "_postman_previewlanguage": "text"
                                 },
                                 {
-                                    "id": "7eff0461-9290-4d2c-ac46-da7251681da8",
+                                    "id": "2c0e6a4a-9ff9-4450-978f-7f6cb6d414c5",
                                     "name": "Board not found",
                                     "originalRequest": {
                                         "url": {
@@ -3659,7 +4093,7 @@
             "description": "",
             "item": [
                 {
-                    "id": "a1def289-e20f-47bc-a085-e468dcb27b3e",
+                    "id": "37c7319d-c9ff-4251-8f3e-9f0efe2d29ce",
                     "name": "Create list",
                     "request": {
                         "name": "Create list",
@@ -3678,6 +4112,10 @@
                             {
                                 "key": "Content-Type",
                                 "value": "application/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
                             }
                         ],
                         "method": "POST",
@@ -3695,7 +4133,7 @@
                     },
                     "response": [
                         {
-                            "id": "d5a43584-19aa-48df-9586-fe1365bc525d",
+                            "id": "c45b86c6-1276-40d3-b56f-7a891270b2ce",
                             "name": "List created",
                             "originalRequest": {
                                 "url": {
@@ -3711,6 +4149,10 @@
                                 "header": [
                                     {
                                         "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
                                         "value": "application/json"
                                     }
                                 ],
@@ -3728,9 +4170,15 @@
                             },
                             "status": "Created",
                             "code": 201,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"boardId\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -3739,7 +4187,7 @@
                     }
                 },
                 {
-                    "id": "01f3a0f0-e424-46f9-8904-b06ab9ad6717",
+                    "id": "065738a3-7c97-416a-b773-9d5762fb072c",
                     "name": "Get all lists",
                     "request": {
                         "name": "Get all lists",
@@ -3764,13 +4212,19 @@
                             ],
                             "variable": []
                         },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            }
+                        ],
                         "method": "GET",
                         "body": {},
                         "auth": null
                     },
                     "response": [
                         {
-                            "id": "ecdb92f7-99e5-4bd9-9f6e-e14c6e365f60",
+                            "id": "2ffb6fee-d3e5-438d-b8c8-943ebe26cf26",
                             "name": "List of lists",
                             "originalRequest": {
                                 "url": {
@@ -3793,14 +4247,26 @@
                                     ],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {}
                             },
                             "status": "OK",
                             "code": 200,
-                            "header": [],
+                            "header": [
+                                {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                }
+                            ],
+                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"boardId\": \"<string>\",\n    \"position\": \"<integer>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"boardId\": \"<string>\",\n    \"position\": \"<integer>\"\n  }\n]",
                             "cookie": [],
-                            "_postman_previewlanguage": "text"
+                            "_postman_previewlanguage": "json"
                         }
                     ],
                     "event": [],
@@ -3813,7 +4279,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "55b00bfb-92a6-4cf0-b7e1-75cf9b1ce464",
+                            "id": "8485e3de-43e2-403f-9d76-b4ef52df0a58",
                             "name": "Get list by ID",
                             "request": {
                                 "name": "Get list by ID",
@@ -3840,13 +4306,19 @@
                                         }
                                     ]
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "d966b40a-802d-4f22-a05d-8eb715efcd85",
+                                    "id": "f3a82893-90ef-45c4-a1f3-f6414b38309c",
                                     "name": "List details",
                                     "originalRequest": {
                                         "url": {
@@ -3860,17 +4332,29 @@
                                             "query": [],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"boardId\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "c60474cb-1780-4c3c-abb6-20bf6c0362d0",
+                                    "id": "4706db4d-c8d3-4f23-b75d-df54ce181d2d",
                                     "name": "List not found",
                                     "originalRequest": {
                                         "url": {
@@ -3900,7 +4384,7 @@
                             }
                         },
                         {
-                            "id": "70415971-c01c-4a75-b76f-b4364dc7b8d7",
+                            "id": "6cded5f6-35ad-411c-a161-040f84836fac",
                             "name": "Update list",
                             "request": {
                                 "name": "Update list",
@@ -3931,6 +4415,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "PATCH",
@@ -3948,7 +4436,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "2bbabcca-b0a2-4f60-8de3-f91ac4f78fa3",
+                                    "id": "118a2c3b-094e-4402-b61c-ee3c533e01a2",
                                     "name": "List updated",
                                     "originalRequest": {
                                         "url": {
@@ -3966,6 +4454,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "PATCH",
@@ -3982,12 +4474,18 @@
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"boardId\": \"<string>\",\n  \"position\": \"<integer>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 },
                                 {
-                                    "id": "961fb9e7-1f42-4c5d-ab39-1ab3d297ed43",
+                                    "id": "4201d861-c032-4a79-9880-e2121a27cb2c",
                                     "name": "List not found",
                                     "originalRequest": {
                                         "url": {
@@ -4032,7 +4530,7 @@
                             }
                         },
                         {
-                            "id": "b008df96-66ed-4ef6-a9b4-bd6a4ad6b397",
+                            "id": "396a8148-98e0-436c-b848-13157e8dc49b",
                             "name": "Delete list",
                             "request": {
                                 "name": "Delete list",
@@ -4065,7 +4563,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "5b6eb08a-41d8-4dca-b42e-ac28d8bc2eb0",
+                                    "id": "4de58df7-9dbc-458c-851b-e7a5cadbb70f",
                                     "name": "List deleted",
                                     "originalRequest": {
                                         "url": {
@@ -4089,7 +4587,7 @@
                                     "_postman_previewlanguage": "text"
                                 },
                                 {
-                                    "id": "0de1d67c-d679-4261-839a-398193f7f9ef",
+                                    "id": "8e0a2f56-d395-4bdf-8784-f619f925bee9",
                                     "name": "List not found",
                                     "originalRequest": {
                                         "url": {
@@ -4135,7 +4633,7 @@
                             "description": "",
                             "item": [
                                 {
-                                    "id": "322a4710-3f31-40ab-b48f-c14c94f1bd63",
+                                    "id": "3a5ef4b7-c972-433f-b3c7-74603a712a43",
                                     "name": "Create comment",
                                     "request": {
                                         "name": "Create comment",
@@ -4167,6 +4665,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -4184,7 +4686,7 @@
                                     },
                                     "response": [
                                         {
-                                            "id": "832192fc-9c1d-4c40-905f-67a585ee92b1",
+                                            "id": "26b43078-2b0f-42a5-b7ba-faee5dd0b0e6",
                                             "name": "Comment created",
                                             "originalRequest": {
                                                 "url": {
@@ -4203,6 +4705,10 @@
                                                     {
                                                         "key": "Content-Type",
                                                         "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
                                                     }
                                                 ],
                                                 "method": "POST",
@@ -4219,9 +4725,15 @@
                                             },
                                             "status": "Created",
                                             "code": 201,
-                                            "header": [],
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"id\": \"<string>\",\n  \"content\": \"<string>\",\n  \"issueId\": \"<string>\",\n  \"userId\": \"<string>\"\n}",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -4230,7 +4742,7 @@
                                     }
                                 },
                                 {
-                                    "id": "6d982c01-5b95-42aa-8029-3dcd0ef80e66",
+                                    "id": "b74ff9e1-9d6b-43fb-8197-682088551a57",
                                     "name": "Get all comments for issue",
                                     "request": {
                                         "name": "Get all comments for issue",
@@ -4258,13 +4770,19 @@
                                                 }
                                             ]
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {},
                                         "auth": null
                                     },
                                     "response": [
                                         {
-                                            "id": "d68e293f-e725-46e4-be7e-73780c0a6164",
+                                            "id": "017876ac-ce5a-4c0e-8fe2-1d24fcc85f27",
                                             "name": "List of comments",
                                             "originalRequest": {
                                                 "url": {
@@ -4279,14 +4797,26 @@
                                                     "query": [],
                                                     "variable": []
                                                 },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
                                                 "method": "GET",
                                                 "body": {}
                                             },
                                             "status": "OK",
                                             "code": 200,
-                                            "header": [],
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "[\n  {\n    \"id\": \"<string>\",\n    \"content\": \"<string>\",\n    \"issueId\": \"<string>\",\n    \"userId\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"content\": \"<string>\",\n    \"issueId\": \"<string>\",\n    \"userId\": \"<string>\"\n  }\n]",
                                             "cookie": [],
-                                            "_postman_previewlanguage": "text"
+                                            "_postman_previewlanguage": "json"
                                         }
                                     ],
                                     "event": [],
@@ -4309,7 +4839,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "113ce974-4106-4ca5-bc99-1d8c16407b09",
+                            "id": "fd15f474-ce6f-4703-bee3-a94261fa7f39",
                             "name": "Get presigned URL for upload",
                             "request": {
                                 "name": "Get presigned URL for upload",
@@ -4329,6 +4859,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "POST",
@@ -4346,7 +4880,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "f468ba7b-85a6-4802-acb5-e12e1e94a965",
+                                    "id": "aeedec2a-c499-4a47-8d42-8aa10650cb72",
                                     "name": "Presigned URL generated",
                                     "originalRequest": {
                                         "url": {
@@ -4364,6 +4898,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -4380,9 +4918,15 @@
                                     },
                                     "status": "Created",
                                     "code": 201,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"url\": \"<string>\",\n  \"fields\": {}\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 }
                             ],
                             "event": [],
@@ -4397,7 +4941,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "d1efcc76-3e69-40f4-9567-834f79cd5af3",
+                            "id": "9b8277c4-d8ba-45d5-a134-fc515f4cd90d",
                             "name": "Confirm upload and create DB record",
                             "request": {
                                 "name": "Confirm upload and create DB record",
@@ -4417,6 +4961,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "POST",
@@ -4434,7 +4982,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "f794afbf-c141-42d5-ae0b-6c30e9b9ae72",
+                                    "id": "62eda7bf-a709-4f8f-99b2-b88c283245da",
                                     "name": "Attachment created",
                                     "originalRequest": {
                                         "url": {
@@ -4452,6 +5000,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -4468,9 +5020,15 @@
                                     },
                                     "status": "Created",
                                     "code": 201,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"issueId\": \"<string>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 }
                             ],
                             "event": [],
@@ -4491,7 +5049,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "f6199ca9-5859-44a8-871f-89c0016048e3",
+                            "id": "56139c4c-62d0-4743-9025-bfc734326214",
                             "name": "Get all users with filters",
                             "request": {
                                 "name": "Get all users with filters",
@@ -4526,13 +5084,19 @@
                                     ],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "03a74184-c3ad-4f35-9af0-bb7b7d01e249",
+                                    "id": "8a4dad8c-dfe1-4a91-b35b-659faddbb1d4",
                                     "name": "List of users",
                                     "originalRequest": {
                                         "url": {
@@ -4565,14 +5129,26 @@
                                             ],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "[\n  {\n    \"id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"email\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 }
                             ],
                             "event": [],
@@ -4587,7 +5163,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "28fcc62d-b974-4043-945d-27aea6298a4e",
+                            "id": "48c0cc67-3f79-434c-acf0-5ed3809df303",
                             "name": "Impersonate a user",
                             "request": {
                                 "name": "Impersonate a user",
@@ -4607,6 +5183,10 @@
                                     {
                                         "key": "Content-Type",
                                         "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
                                     }
                                 ],
                                 "method": "POST",
@@ -4624,7 +5204,7 @@
                             },
                             "response": [
                                 {
-                                    "id": "68a91951-0a6f-4d55-bde1-10ddaec41fa8",
+                                    "id": "8587ba84-b223-4702-9ca8-be3fb5c5c3c2",
                                     "name": "Impersonation token issued",
                                     "originalRequest": {
                                         "url": {
@@ -4642,6 +5222,10 @@
                                             {
                                                 "key": "Content-Type",
                                                 "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
                                             }
                                         ],
                                         "method": "POST",
@@ -4658,9 +5242,15 @@
                                     },
                                     "status": "Created",
                                     "code": 201,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"accessToken\": \"<string>\",\n  \"expiresIn\": \"<number>\"\n}",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 }
                             ],
                             "event": [],
@@ -4675,7 +5265,7 @@
                     "description": "",
                     "item": [
                         {
-                            "id": "ed9f3fce-2e11-473f-8e6b-0f564e246a8d",
+                            "id": "91471352-3d82-4c20-8fe5-1e05f2a7f1ab",
                             "name": "Get audit logs with filters",
                             "request": {
                                 "name": "Get audit logs with filters",
@@ -4728,13 +5318,19 @@
                                     ],
                                     "variable": []
                                 },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
                                 "method": "GET",
                                 "body": {},
                                 "auth": null
                             },
                             "response": [
                                 {
-                                    "id": "422f9599-e323-433d-b3a9-5bd231caa672",
+                                    "id": "6d3b4cc5-a2bd-40c7-b203-fe2bc7e124a6",
                                     "name": "List of audit logs",
                                     "originalRequest": {
                                         "url": {
@@ -4785,14 +5381,26 @@
                                             ],
                                             "variable": []
                                         },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
                                         "method": "GET",
                                         "body": {}
                                     },
                                     "status": "OK",
                                     "code": 200,
-                                    "header": [],
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "[\n  {\n    \"id\": \"<string>\",\n    \"action\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"timestamp\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"action\": \"<string>\",\n    \"userId\": \"<string>\",\n    \"timestamp\": \"<dateTime>\"\n  }\n]",
                                     "cookie": [],
-                                    "_postman_previewlanguage": "text"
+                                    "_postman_previewlanguage": "json"
                                 }
                             ],
                             "event": [],
@@ -4813,7 +5421,7 @@
         }
     ],
     "info": {
-        "_postman_id": "0b79d0cf-5ece-420c-9a84-d49af9badf24",
+        "_postman_id": "b8228eb5-3da7-4725-9939-d2a3968e38a3",
         "name": "API",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": {

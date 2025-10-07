@@ -161,7 +161,37 @@
         ],
         "responses": {
           "200": {
-            "description": "List of users"
+            "description": "List of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "user1" },
+                      "email": { "type": "string", "example": "user1@example.com" },
+                      "name": { "type": "string", "example": "User One" },
+                      "status": { "type": "string", "example": "active" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "user1",
+                    "email": "user1@example.com",
+                    "name": "User One",
+                    "status": "active"
+                  },
+                  {
+                    "id": "user2",
+                    "email": "user2@example.com",
+                    "name": "User Two",
+                    "status": "inactive"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -190,7 +220,24 @@
         ],
         "responses": {
           "200": {
-            "description": "User details"
+            "description": "User details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "user1" },
+                    "email": { "type": "string", "example": "user1@example.com" },
+                    "name": { "type": "string", "example": "User One" }
+                  }
+                },
+                "example": {
+                  "id": "user1",
+                  "email": "user1@example.com",
+                  "name": "User One"
+                }
+              }
+            }
           },
           "404": {
             "description": "User not found"
@@ -235,7 +282,24 @@
         },
         "responses": {
           "200": {
-            "description": "Updated user"
+            "description": "Updated user",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "user1" },
+                    "email": { "type": "string", "example": "updated@example.com" },
+                    "name": { "type": "string", "example": "Updated Name" }
+                  }
+                },
+                "example": {
+                  "id": "user1",
+                  "email": "updated@example.com",
+                  "name": "Updated Name"
+                }
+              }
+            }
           },
           "404": {
             "description": "User not found"
@@ -300,7 +364,34 @@
         ],
         "responses": {
           "200": {
-            "description": "User permissions"
+            "description": "User permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "perm1" },
+                      "name": { "type": "string", "example": "read" },
+                      "description": { "type": "string", "example": "Read access" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "perm1",
+                    "name": "read",
+                    "description": "Read access"
+                  },
+                  {
+                    "id": "perm2",
+                    "name": "write",
+                    "description": "Write access"
+                  }
+                ]
+              }
+            }
           },
           "404": {
             "description": "User not found"
@@ -327,13 +418,34 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateRoleDto"
+              },
+              "example": {
+                "name": "admin",
+                "description": "Administrator role"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Role created"
+            "description": "Role created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "role1" },
+                    "name": { "type": "string", "example": "admin" },
+                    "description": { "type": "string", "example": "Administrator role" }
+                  }
+                },
+                "example": {
+                  "id": "role1",
+                  "name": "admin",
+                  "description": "Administrator role"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -351,7 +463,34 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "List of roles"
+            "description": "List of roles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "role1" },
+                      "name": { "type": "string", "example": "admin" },
+                      "description": { "type": "string", "example": "Administrator role" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "role1",
+                    "name": "admin",
+                    "description": "Administrator role"
+                  },
+                  {
+                    "id": "role2",
+                    "name": "user",
+                    "description": "Standard user role"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -380,7 +519,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Role details"
+            "description": "Role details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "role1" },
+                    "name": { "type": "string", "example": "admin" },
+                    "description": { "type": "string", "example": "Administrator role" }
+                  }
+                },
+                "example": {
+                  "id": "role1",
+                  "name": "admin",
+                  "description": "Administrator role"
+                }
+              }
+            }
           },
           "404": {
             "description": "Role not found"
@@ -414,13 +570,34 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateRoleDto"
+              },
+              "example": {
+                "name": "admin",
+                "description": "Administrator role"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Role updated"
+            "description": "Role updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "role1" },
+                    "name": { "type": "string", "example": "admin" },
+                    "description": { "type": "string", "example": "Administrator role" }
+                  }
+                },
+                "example": {
+                  "id": "role1",
+                  "name": "admin",
+                  "description": "Administrator role"
+                }
+              }
+            }
           },
           "404": {
             "description": "Role not found"
@@ -486,13 +663,29 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AssignRoleDto"
+              },
+              "example": {
+                "userId": "user_id_123"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Role assigned"
+            "description": "Role assigned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Role assigned successfully" }
+                  }
+                },
+                "example": {
+                  "message": "Role assigned successfully"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -516,13 +709,34 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreatePermissionDto"
+              },
+              "example": {
+                "name": "read",
+                "description": "Read access"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Permission created"
+            "description": "Permission created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "perm1" },
+                    "name": { "type": "string", "example": "read" },
+                    "description": { "type": "string", "example": "Read access" }
+                  }
+                },
+                "example": {
+                  "id": "perm1",
+                  "name": "read",
+                  "description": "Read access"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -540,7 +754,34 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "List of permissions"
+            "description": "List of permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "perm1" },
+                      "name": { "type": "string", "example": "read" },
+                      "description": { "type": "string", "example": "Read access" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "perm1",
+                    "name": "read",
+                    "description": "Read access"
+                  },
+                  {
+                    "id": "perm2",
+                    "name": "write",
+                    "description": "Write access"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -569,7 +810,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Permission details"
+            "description": "Permission details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "perm1" },
+                    "name": { "type": "string", "example": "read" },
+                    "description": { "type": "string", "example": "Read access" }
+                  }
+                },
+                "example": {
+                  "id": "perm1",
+                  "name": "read",
+                  "description": "Read access"
+                }
+              }
+            }
           },
           "404": {
             "description": "Permission not found"
@@ -603,13 +861,34 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdatePermissionDto"
+              },
+              "example": {
+                "name": "read",
+                "description": "Read access"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Permission updated"
+            "description": "Permission updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "perm1" },
+                    "name": { "type": "string", "example": "read" },
+                    "description": { "type": "string", "example": "Read access" }
+                  }
+                },
+                "example": {
+                  "id": "perm1",
+                  "name": "read",
+                  "description": "Read access"
+                }
+              }
+            }
           },
           "404": {
             "description": "Permission not found"
@@ -666,13 +945,39 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateProjectDto"
+              },
+              "example": {
+                "name": "My Project",
+                "description": "A sample project",
+                "organizationId": "org_id_123"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Project created"
+            "description": "Project created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "project1" },
+                    "name": { "type": "string", "example": "My Project" },
+                    "description": { "type": "string", "example": "A sample project" },
+                    "organizationId": { "type": "string", "example": "org_id_123" },
+                    "ownerId": { "type": "string", "example": "user1" }
+                  }
+                },
+                "example": {
+                  "id": "project1",
+                  "name": "My Project",
+                  "description": "A sample project",
+                  "organizationId": "org_id_123",
+                  "ownerId": "user1"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -699,7 +1004,40 @@
         ],
         "responses": {
           "200": {
-            "description": "List of projects"
+            "description": "List of projects",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "project1" },
+                      "name": { "type": "string", "example": "My Project" },
+                      "description": { "type": "string", "example": "A sample project" },
+                      "organizationId": { "type": "string", "example": "org_id_123" },
+                      "ownerId": { "type": "string", "example": "user1" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "project1",
+                    "name": "My Project",
+                    "description": "A sample project",
+                    "organizationId": "org_id_123",
+                    "ownerId": "user1"
+                  },
+                  {
+                    "id": "project2",
+                    "name": "Another Project",
+                    "description": "Another sample project",
+                    "organizationId": "org_id_456",
+                    "ownerId": "user2"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -728,7 +1066,28 @@
         ],
         "responses": {
           "200": {
-            "description": "Project details"
+            "description": "Project details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "project1" },
+                    "name": { "type": "string", "example": "My Project" },
+                    "description": { "type": "string", "example": "A sample project" },
+                    "organizationId": { "type": "string", "example": "org_id_123" },
+                    "ownerId": { "type": "string", "example": "user1" }
+                  }
+                },
+                "example": {
+                  "id": "project1",
+                  "name": "My Project",
+                  "description": "A sample project",
+                  "organizationId": "org_id_123",
+                  "ownerId": "user1"
+                }
+              }
+            }
           },
           "404": {
             "description": "Project not found"
@@ -762,13 +1121,38 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateProjectDto"
+              },
+              "example": {
+                "name": "Updated Project",
+                "description": "Updated description"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Project updated"
+            "description": "Project updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "project1" },
+                    "name": { "type": "string", "example": "Updated Project" },
+                    "description": { "type": "string", "example": "Updated description" },
+                    "organizationId": { "type": "string", "example": "org_id_123" },
+                    "ownerId": { "type": "string", "example": "user1" }
+                  }
+                },
+                "example": {
+                  "id": "project1",
+                  "name": "Updated Project",
+                  "description": "Updated description",
+                  "organizationId": "org_id_123",
+                  "ownerId": "user1"
+                }
+              }
+            }
           },
           "404": {
             "description": "Project not found"
@@ -834,13 +1218,29 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AddMemberDto"
+              },
+              "example": {
+                "userId": "user_id_123"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Member added"
+            "description": "Member added",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Member added successfully" }
+                  }
+                },
+                "example": {
+                  "message": "Member added successfully"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -877,7 +1277,20 @@
         ],
         "responses": {
           "200": {
-            "description": "Member removed"
+            "description": "Member removed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": { "type": "string", "example": "Member removed successfully" }
+                  }
+                },
+                "example": {
+                  "message": "Member removed successfully"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -901,13 +1314,34 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateBoardDto"
+              },
+              "example": {
+                "name": "My Board",
+                "projectId": "project_id_123"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Board created"
+            "description": "Board created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "board1" },
+                    "name": { "type": "string", "example": "My Board" },
+                    "projectId": { "type": "string", "example": "project_id_123" }
+                  }
+                },
+                "example": {
+                  "id": "board1",
+                  "name": "My Board",
+                  "projectId": "project_id_123"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -934,7 +1368,34 @@
         ],
         "responses": {
           "200": {
-            "description": "List of boards"
+            "description": "List of boards",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "board1" },
+                      "name": { "type": "string", "example": "My Board" },
+                      "projectId": { "type": "string", "example": "project_id_123" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "board1",
+                    "name": "My Board",
+                    "projectId": "project_id_123"
+                  },
+                  {
+                    "id": "board2",
+                    "name": "Another Board",
+                    "projectId": "project_id_456"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -963,7 +1424,24 @@
         ],
         "responses": {
           "200": {
-            "description": "Board details"
+            "description": "Board details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "board1" },
+                    "name": { "type": "string", "example": "My Board" },
+                    "projectId": { "type": "string", "example": "project_id_123" }
+                  }
+                },
+                "example": {
+                  "id": "board1",
+                  "name": "My Board",
+                  "projectId": "project_id_123"
+                }
+              }
+            }
           },
           "404": {
             "description": "Board not found"
@@ -997,13 +1475,33 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateBoardDto"
+              },
+              "example": {
+                "name": "Updated Board"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Board updated"
+            "description": "Board updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "board1" },
+                    "name": { "type": "string", "example": "Updated Board" },
+                    "projectId": { "type": "string", "example": "project_id_123" }
+                  }
+                },
+                "example": {
+                  "id": "board1",
+                  "name": "Updated Board",
+                  "projectId": "project_id_123"
+                }
+              }
+            }
           },
           "404": {
             "description": "Board not found"
@@ -1060,13 +1558,36 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateListDto"
+              },
+              "example": {
+                "name": "To Do",
+                "boardId": "board_id_123"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "List created"
+            "description": "List created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "list1" },
+                    "name": { "type": "string", "example": "To Do" },
+                    "boardId": { "type": "string", "example": "board_id_123" },
+                    "position": { "type": "integer", "example": 1 }
+                  }
+                },
+                "example": {
+                  "id": "list1",
+                  "name": "To Do",
+                  "boardId": "board_id_123",
+                  "position": 1
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -1093,7 +1614,37 @@
         ],
         "responses": {
           "200": {
-            "description": "List of lists"
+            "description": "List of lists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "list1" },
+                      "name": { "type": "string", "example": "To Do" },
+                      "boardId": { "type": "string", "example": "board_id_123" },
+                      "position": { "type": "integer", "example": 1 }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "list1",
+                    "name": "To Do",
+                    "boardId": "board_id_123",
+                    "position": 1
+                  },
+                  {
+                    "id": "list2",
+                    "name": "In Progress",
+                    "boardId": "board_id_123",
+                    "position": 2
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -1122,7 +1673,26 @@
         ],
         "responses": {
           "200": {
-            "description": "List details"
+            "description": "List details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "list1" },
+                    "name": { "type": "string", "example": "To Do" },
+                    "boardId": { "type": "string", "example": "board_id_123" },
+                    "position": { "type": "integer", "example": 1 }
+                  }
+                },
+                "example": {
+                  "id": "list1",
+                  "name": "To Do",
+                  "boardId": "board_id_123",
+                  "position": 1
+                }
+              }
+            }
           },
           "404": {
             "description": "List not found"
@@ -1156,13 +1726,35 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateListDto"
+              },
+              "example": {
+                "name": "In Progress"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "List updated"
+            "description": "List updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "list1" },
+                    "name": { "type": "string", "example": "In Progress" },
+                    "boardId": { "type": "string", "example": "board_id_123" },
+                    "position": { "type": "integer", "example": 2 }
+                  }
+                },
+                "example": {
+                  "id": "list1",
+                  "name": "In Progress",
+                  "boardId": "board_id_123",
+                  "position": 2
+                }
+              }
+            }
           },
           "404": {
             "description": "List not found"
@@ -1228,13 +1820,42 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateIssueDto"
+              },
+              "example": {
+                "title": "Fix bug",
+                "description": "Description of the issue",
+                "assigneeId": "user_id_123",
+                "listId": "list_id_123"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Issue created"
+            "description": "Issue created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "issue1" },
+                    "title": { "type": "string", "example": "Fix bug" },
+                    "description": { "type": "string", "example": "Description of the issue" },
+                    "listId": { "type": "string", "example": "list_id_123" },
+                    "assigneeId": { "type": "string", "example": "user_id_123" },
+                    "position": { "type": "integer", "example": 1 }
+                  }
+                },
+                "example": {
+                  "id": "issue1",
+                  "title": "Fix bug",
+                  "description": "Description of the issue",
+                  "listId": "list_id_123",
+                  "assigneeId": "user_id_123",
+                  "position": 1
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -1293,7 +1914,43 @@
         ],
         "responses": {
           "200": {
-            "description": "List of issues"
+            "description": "List of issues",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "issue1" },
+                      "title": { "type": "string", "example": "Fix bug" },
+                      "description": { "type": "string", "example": "Description of the issue" },
+                      "listId": { "type": "string", "example": "list_id_123" },
+                      "assigneeId": { "type": "string", "example": "user_id_123" },
+                      "position": { "type": "integer", "example": 1 }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "issue1",
+                    "title": "Fix bug",
+                    "description": "Description of the issue",
+                    "listId": "list_id_123",
+                    "assigneeId": "user_id_123",
+                    "position": 1
+                  },
+                  {
+                    "id": "issue2",
+                    "title": "Add feature",
+                    "description": "Description of the feature",
+                    "listId": "list_id_456",
+                    "assigneeId": "user_id_456",
+                    "position": 2
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -1322,7 +1979,30 @@
         ],
         "responses": {
           "200": {
-            "description": "Issue details"
+            "description": "Issue details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "issue1" },
+                    "title": { "type": "string", "example": "Fix bug" },
+                    "description": { "type": "string", "example": "Description of the issue" },
+                    "listId": { "type": "string", "example": "list_id_123" },
+                    "assigneeId": { "type": "string", "example": "user_id_123" },
+                    "position": { "type": "integer", "example": 1 }
+                  }
+                },
+                "example": {
+                  "id": "issue1",
+                  "title": "Fix bug",
+                  "description": "Description of the issue",
+                  "listId": "list_id_123",
+                  "assigneeId": "user_id_123",
+                  "position": 1
+                }
+              }
+            }
           },
           "404": {
             "description": "Issue not found"
@@ -1364,13 +2044,41 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateIssueDto"
+              },
+              "example": {
+                "title": "Updated title",
+                "description": "Updated description",
+                "assigneeId": "user_id_456"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Issue updated"
+            "description": "Issue updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "issue1" },
+                    "title": { "type": "string", "example": "Updated title" },
+                    "description": { "type": "string", "example": "Updated description" },
+                    "listId": { "type": "string", "example": "list_id_123" },
+                    "assigneeId": { "type": "string", "example": "user_id_456" },
+                    "position": { "type": "integer", "example": 1 }
+                  }
+                },
+                "example": {
+                  "id": "issue1",
+                  "title": "Updated title",
+                  "description": "Updated description",
+                  "listId": "list_id_123",
+                  "assigneeId": "user_id_456",
+                  "position": 1
+                }
+              }
+            }
           },
           "404": {
             "description": "Issue not found"
@@ -1444,13 +2152,35 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateCommentDto"
+              },
+              "example": {
+                "content": "This is a comment"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Comment created"
+            "description": "Comment created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "comment1" },
+                    "content": { "type": "string", "example": "This is a comment" },
+                    "issueId": { "type": "string", "example": "issue_id_123" },
+                    "userId": { "type": "string", "example": "user_id_123" }
+                  }
+                },
+                "example": {
+                  "id": "comment1",
+                  "content": "This is a comment",
+                  "issueId": "issue_id_123",
+                  "userId": "user_id_123"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -1477,7 +2207,37 @@
         ],
         "responses": {
           "200": {
-            "description": "List of comments"
+            "description": "List of comments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "comment1" },
+                      "content": { "type": "string", "example": "This is a comment" },
+                      "issueId": { "type": "string", "example": "issue_id_123" },
+                      "userId": { "type": "string", "example": "user_id_123" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "comment1",
+                    "content": "This is a comment",
+                    "issueId": "issue_id_123",
+                    "userId": "user_id_123"
+                  },
+                  {
+                    "id": "comment2",
+                    "content": "Another comment",
+                    "issueId": "issue_id_123",
+                    "userId": "user_id_456"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -1501,13 +2261,34 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/PresignDto"
+              },
+              "example": {
+                "issueId": "issue_id_123",
+                "filename": "image.png",
+                "contentType": "image/png",
+                "size": 1024
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Presigned URL generated"
+            "description": "Presigned URL generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": { "type": "string", "example": "https://s3.amazonaws.com/bucket/uploads/image.png" },
+                    "fields": { "type": "object", "example": {} }
+                  }
+                },
+                "example": {
+                  "url": "https://s3.amazonaws.com/bucket/uploads/image.png",
+                  "fields": {}
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -1531,13 +2312,35 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ConfirmDto"
+              },
+              "example": {
+                "issueId": "issue_id_123",
+                "objectKey": "uploads/image.png",
+                "url": "https://s3.amazonaws.com/bucket/uploads/image.png"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Attachment created"
+            "description": "Attachment created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string", "example": "attachment1" },
+                    "url": { "type": "string", "example": "https://s3.amazonaws.com/bucket/uploads/image.png" },
+                    "issueId": { "type": "string", "example": "issue_id_123" }
+                  }
+                },
+                "example": {
+                  "id": "attachment1",
+                  "url": "https://s3.amazonaws.com/bucket/uploads/image.png",
+                  "issueId": "issue_id_123"
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -1574,7 +2377,34 @@
         ],
         "responses": {
           "200": {
-            "description": "List of users"
+            "description": "List of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "user1" },
+                      "email": { "type": "string", "example": "user1@example.com" },
+                      "name": { "type": "string", "example": "User One" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "user1",
+                    "email": "user1@example.com",
+                    "name": "User One"
+                  },
+                  {
+                    "id": "user2",
+                    "email": "user2@example.com",
+                    "name": "User Two"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
@@ -1598,13 +2428,31 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ImpersonateDto"
+              },
+              "example": {
+                "userId": "user_id_123"
               }
             }
           }
         },
         "responses": {
           "201": {
-            "description": "Impersonation token issued"
+            "description": "Impersonation token issued",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "accessToken": { "type": "string", "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." },
+                    "expiresIn": { "type": "number", "example": 900 }
+                  }
+                },
+                "example": {
+                  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+                  "expiresIn": 900
+                }
+              }
+            }
           }
         },
         "tags": [
@@ -1657,7 +2505,37 @@
         ],
         "responses": {
           "200": {
-            "description": "List of audit logs"
+            "description": "List of audit logs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "string", "example": "log1" },
+                      "action": { "type": "string", "example": "login" },
+                      "userId": { "type": "string", "example": "user1" },
+                      "timestamp": { "type": "string", "format": "date-time", "example": "2023-10-01T12:00:00Z" }
+                    }
+                  }
+                },
+                "example": [
+                  {
+                    "id": "log1",
+                    "action": "login",
+                    "userId": "user1",
+                    "timestamp": "2023-10-01T12:00:00Z"
+                  },
+                  {
+                    "id": "log2",
+                    "action": "create_project",
+                    "userId": "user2",
+                    "timestamp": "2023-10-02T14:30:00Z"
+                  }
+                ]
+              }
+            }
           }
         },
         "tags": [
