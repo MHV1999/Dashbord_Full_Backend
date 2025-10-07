@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 # Default commit message (can pass custom msg as first arg)
-DEFAULT_MSG="chore(db): add full demo seed data"
+DEFAULT_MSG="test(ci): add jest and e2e test skeleton"
 COMMIT_MSG="${1:-$DEFAULT_MSG}"
 
 # Initialize git if not present
