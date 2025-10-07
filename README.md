@@ -1,6 +1,37 @@
-# Backend API
+# Dashboard Backend API
 
-This is an API-first backend built with NestJS, TypeScript, and Node.js.
+A production-ready, API-first backend built with NestJS, TypeScript, and Node.js. Features comprehensive authentication, role-based permissions, real-time WebSocket support, and full CRUD operations for project management.
+
+## 🚀 Features
+
+- **🔐 Authentication & Security**
+  - JWT access/refresh token system
+  - Secure HTTP-only cookies for refresh tokens
+  - Password hashing with bcrypt
+  - Role-based access control (RBAC)
+  - Rate limiting and CORS protection
+
+- **📊 Database & API**
+  - Prisma ORM with PostgreSQL
+  - Complete data models (Users, Roles, Permissions, Projects, Boards, Issues, etc.)
+  - RESTful API endpoints
+  - Swagger/OpenAPI documentation
+
+- **⚡ Real-time Features**
+  - WebSocket support for live updates
+  - Project collaboration features
+
+- **🛡️ Security Features**
+  - Helmet for security headers
+  - Input validation and sanitization
+  - File upload security
+  - Audit logging
+
+- **🐳 DevOps Ready**
+  - Docker containerization
+  - Multi-stage builds
+  - CI/CD pipeline with GitHub Actions
+  - Environment-based configuration
 
 ## Local Development
 
@@ -29,7 +60,7 @@ This is an API-first backend built with NestJS, TypeScript, and Node.js.
    npm run dev
    ```
 
-The server will be running on http://localhost:3000
+The server will be running on http://localhost:8080
 
 ## Using Docker Compose
 
@@ -38,7 +69,7 @@ The server will be running on http://localhost:3000
    docker-compose up --build
    ```
 
-This will start the app, PostgreSQL, and Redis.
+This will start the app on port 8081, PostgreSQL, and Redis.
 
 ## Verification Checklist
 
@@ -74,7 +105,9 @@ See [docs/production.md](docs/production.md) for production deployment guide.
 
 ## API Documentation
 
-Once running, access Swagger docs at: http://localhost:3000/api
+Once running, access Swagger docs at:
+- Local development: http://localhost:8080/docs
+- Docker: http://localhost:8081/docs
 
 ## Project Structure
 
