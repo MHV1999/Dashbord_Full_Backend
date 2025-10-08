@@ -23,6 +23,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 # copy only production node_modules from deps stage
 COPY --from=deps /app/node_modules ./node_modules
+# copy generated Prisma client from builder stage
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
 # copy built artifacts
 COPY --from=builder /app/dist ./dist
 # copy package.json for completeness (optional)
